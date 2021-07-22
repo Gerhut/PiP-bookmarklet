@@ -1,0 +1,27 @@
+{
+  "name": "pip-bookmarklet",
+  "version": "0.0.0",
+  "description": "A bookmarklet that toggle Picture-in-Picture mode (PiP).",
+  "main": "PiP.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gerhut/PiP-bookmarklet.git"
+  },
+  "keywords": [
+    "PiP",
+    "bootmarklet"
+  ],
+  "author": "George Cheng <Gerhut@GMail.com>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/Gerhut/PiP-bookmarklet/issues"
+  },
+  "homepage": "https://github.com/Gerhut/PiP-bookmarklet#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "prettier": "^2.3.2"
+  }
+}

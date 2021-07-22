@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PiP Bookmarklet</title>
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" />
+    <style>
+      video {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>PiP Bookmarklet</h1>
+    <p>A bookmarklet that toggle Picture-in-Picture mode (PiP).</p>
+    <ul>
+      <li>Detect the biggest video to PiP</li>
+      <li>PiP toggling</li>
+    </ul>
+    <h2>Install</h2>
+    <blockquote>Drag <a class="pip button" disabled>PiP</a> to your bookmark bar.</blockquote>
+    <h2>Try</h2>
+    <p>
+      <!-- 'Elephants Dream' by Orange Open Movie Project Studio, licensed under CC-3.0, hosted by archive.org -->
+      <!-- Poster hosted by Wikimedia -->
+      <video controls poster="https://upload.wikimedia.org/wikipedia/commons/e/e8/Elephants_Dream_s5_both.jpg">
+        <source src="https://archive.org/download/ElephantsDream/ed_1024_512kb.mp4" type="video/mp4" />
+        <source src="https://archive.org/download/ElephantsDream/ed_hd.ogv" type="video/ogg" />
+        <source src="https://archive.org/download/ElephantsDream/ed_hd.avi" type="video/avi" />
+        Your browser doesn't support HTML5 video tag.
+      </video>
+    </p>
+    <script>
+      if (document.pictureInPictureEnabled) {
+        fetch('PiP.js')
+          .then((response) => response.text())
+          .then((script) => {
+            const a = document.querySelector('a.pip')
+            a.href = 'javascript:' + encodeURIComponent(script.replace(/\n\s*/, ' '))
+            a.removeAttribute('disabled')
+          })
+      } else {
+        document.querySelector('blockquote').textContent =
+          "Your browser doesn't or disabled support of Picture-in-Picture."
+      }
+    </script>
+  </body>
+</html>
